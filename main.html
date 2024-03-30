@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Факты о космосе</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Удивительные факты о космосе</h1>
+    </header>
+    <main>
+        <section class="fact">
+            <h2>Факт 1: Космос безграничен</h2>
+            <p>В космосе нет стен и границ. Он бесконечно расширяется, и мы продолжаем узнавать о его тайнах.</p>
+        </section>
+        <section class="fact">
+            <h2>Факт 2: Вселенная содержит миллиарды галактик</h2>
+            <p>Наша галактика, Млечный Путь, только одна из множества галактик во Вселенной. Каждая из них содержит миллиарды звезд.</p>
+        </section>
+        <section class="fact">
+            <h2>Факт 3: Гравитация может искривлять пространство</h2>
+            <p>Согласно общей теории относительности, масса объектов, таких как планеты и звезды, искривляет пространство-время вокруг себя.</p>
+        </section>
+    </main>
+    <footer>
+        <button class="btn" onclick="showMoreFacts()">Больше фактов</button>
+    </footer>
+
+    <script>
+        const additionalFacts = [
+            "Факт 4: Солнце – единственная звезда в нашей Солнечной системе.",
+            "Факт 5: В космосе нет звуков, потому что звук требует среды для распространения, а в вакууме этой среды нет.",
+            "Факт 6: В космосе есть такие объекты, как черные дыры, из которых ничто не может выбраться, даже свет.",
+        ];
+
+        let factIndex = 0;
+
+        function showMoreFacts() {
+            if (factIndex < additionalFacts.length) {
+                const factSection = document.createElement('section');
+                factSection.classList.add('fact');
+
+                const factHeader = document.createElement('h2');
+                factHeader.textContent = additionalFacts[factIndex];
+
+                factSection.appendChild(factHeader);
+                document.querySelector('main').appendChild(factSection);
+
+                factIndex++;
+
+                factSection.style.opacity = 0;
+                window.requestAnimationFrame(function() {
+                    factSection.style.opacity = 1;
+                });
+            } else {
+                alert("Больше фактов нет!");
+            }
+        }
+    </script>
+</body>
+</html>
